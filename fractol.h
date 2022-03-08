@@ -4,9 +4,11 @@
 # include <mlx.h>
 # include <unistd.h>
 # include <stdlib.h>
-# include <fcntl.h>
-# include <math.h>
-# include <stdint.h>
+# include "./ft_printf/includes/ft_printf.h"
+
+// # include <fcntl.h>
+// # include <math.h>
+// # include <stdint.h>
 
 # define WIDTH		1000
 # define HEIGHT		1000
