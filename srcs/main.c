@@ -1,4 +1,4 @@
-#include "fractol.h"
+#include "../includes/fractol.h"
 
 void	my_mlx_pixel_put(t_image *data, int x, int y, int color)
 {
@@ -6,6 +6,11 @@ void	my_mlx_pixel_put(t_image *data, int x, int y, int color)
 
 	dst = data->data_addr + (y * data->size_line + x * (data->bits_per_pixel / 8));
 	*(unsigned int*)dst = color;
+}
+
+int	create_trgb(int t, int r, int g, int b)
+{
+	return (t << 24 | r << 16 | g << 8 | b);
 }
 
 int	main(int argc, char **argv)
@@ -23,4 +28,6 @@ int	main(int argc, char **argv)
 	my_mlx_pixel_put(&img, 5, 5, 0x00FF0000);
 	mlx_put_image_to_window(mlx, mlx_win, img.image, 0, 0);
 	mlx_loop(mlx);
+
+	//img.n = (img.n)%10 * create_trgb((int)(sqrt(img->z.re * img->z.re + img->z.im * img->z.im) * 133) % 255, (int)(sqrt(img->z.re * img->z.re + img->z.im * img->z.im) * 1000) % 255, (int)(sqrt(img->z.re * img->z.re + img->z.im * img->z.im) * 2912) % 255);
 }
