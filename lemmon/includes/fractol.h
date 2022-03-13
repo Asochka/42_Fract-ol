@@ -59,8 +59,7 @@ typedef struct s_data
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
-
-
+	
 	int		fract;
 	int		error;
 	double	scale;

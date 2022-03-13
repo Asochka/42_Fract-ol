@@ -1,8 +1,14 @@
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# define MOUSE_SCROLL_UP	4
-# define MOUSE_SCROLL_DOWN	5
+# define ERR_FRACTOL_INIT	"ERROR: Can\'t initialize fractol"
+# define ERR_WINDOW_INIT	"ERROR: Can\'t initialize window"
+# define ERR_IMAGE_INIT		"ERROR: Can\'t initialize image"
+
+# define ERR_FRACTAL_NAME	"ERROR: No such fractal\nCorrect names:\nJulia\nMandelbrot"
+
+# define ERR_THREADS		"ERROR: There is a problem with threads"
+# define ERR_NUM_ARGV		"ERROR: Wrong number of arguments"
 
 # define NUM_PAD_MINUS		78
 # define NUM_PAD_PLUS		69
@@ -12,21 +18,37 @@
 # define KEY_D				2
 # define KEY_W				13
 
-# define ARROW_UP			126
-# define ARROW_DOWN			125
-# define ARROW_LEFT			123
-# define ARROW_RIGHT		124
+# define KEY_ESC 53
+# define KEY_CROSS 17
+# define MASK_CROSS 131072L
+# define KEY_UP 126
+# define KEY_LEFT 123
+# define KEY_DOWN 125
+# define KEY_RIGHT 124
 
 # define COLOR_SILVER		0xCCCCCC
 # define COLOR_TUNDORA		0x444444
 
-# define MAIN_PAD_ESC		53
 # define MAIN_PAD_SPACE		49
-# define MAIN_PAD_C			8
+//# define MAIN_PAD_C			8
 # define MAIN_PAD_H			4
 # define MAIN_PAD_R			15
 # define MAIN_PAD_PLUS		24
 # define MAIN_PAD_MINUS		27
+
+# define KEY_ONE	83
+# define KEY_TWO	84
+# define KEY_THREE	85
+# define KEY_FOUR	86
+# define KEY_FIVE	87
+# define KEY_SIX	88
+# define KEY_SEVEN	89
+# define KEY_EIGHT	91
+# define KEY_NINE	92
+# define KEY_C		8
+
+# define SCROLL_UP 4
+# define SCROLL_DOWN 5
 
 # include <mlx.h>
 # include <unistd.h>
@@ -63,35 +85,30 @@ typedef	struct		s_color
 
 typedef struct		s_image
 {
+	void			*mlx_ptr;
+	void			*mlx_win;
+
 	void			*image;
 	char			*data_addr;
 	int				bits_per_pixel;
 	int				size_line;
 	int				endian;
 
+
+	double			scale;
 	int				n;
 
-	void			*mlx_ptr;
-	void			*mlx_win;
+
 
 	t_color			color;
 	t_complex		c;
 
-	// int		fract;
+	char			*fract;
+
 	// int		error;
-	// double	scale;
-	// double	x0;
-	// double	y0;
+
+	double	x0;
+	double	y0;
 }					t_image;
 
 #endif
-
-
-
-// # define ERR_FRACTOL_INIT	"ERROR: Can\'t initialize fractol"
-// # define ERR_WINDOW_INIT	"ERROR: Can\'t initialize window"
-// # define ERR_IMAGE_INIT		"ERROR: Can\'t initialize image"
-
-// # define ERR_FRACTAL_NAME	"ERROR: No such fractal"
-
-// # define ERR_TREADS			"ERROR: There is a problem with threads"
