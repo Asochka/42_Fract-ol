@@ -5,7 +5,7 @@
 # define ERR_WINDOW_INIT	"ERROR: Can\'t initialize window"
 # define ERR_IMAGE_INIT		"ERROR: Can\'t initialize image"
 
-# define ERR_FRACTAL_NAME	"ERROR: No such fractal\nCorrect names:\nJulia\nMandelbrot"
+# define ERR_FRACTAL_NAME	"ERROR: No such fractal\nCorrect names:\nJulia\nMandelbrot\n"
 
 # define ERR_THREADS		"ERROR: There is a problem with threads"
 # define ERR_NUM_ARGV		"ERROR: Wrong number of arguments"
@@ -50,7 +50,7 @@
 # define SCROLL_UP 4
 # define SCROLL_DOWN 5
 
-# include <mlx.h>
+# include <../mlx/mlx.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include "../ft_printf/includes/ft_printf.h"
@@ -72,7 +72,7 @@ typedef struct		s_complex
 
 typedef	struct		s_color
 {
-	int8_t			channel[4];
+	int8_t			channel[3];
 }					t_color;
 
 /*
@@ -87,28 +87,41 @@ typedef struct		s_image
 {
 	void			*mlx_ptr;
 	void			*mlx_win;
-
 	void			*image;
 	char			*data_addr;
 	int				bits_per_pixel;
 	int				size_line;
 	int				endian;
-
-
 	double			scale;
 	int				n;
-
-
-
+	int				color_final;
 	t_color			color;
 	t_complex		c;
-
-	char			*fract;
-
-	// int		error;
-
-	double	x0;
-	double	y0;
+	int				fract;
+	double			x0;
+	double			y0;
 }					t_image;
+
+void	ft_empty_fractal(t_image *fractal);
+void	ft_init_image(t_image *fractal);
+void	ft_make_hooks(t_image *fractal);
+void	ft_create_fractal(t_image *fractal, char *name);
+int		main(int argc, char **argv);
+
+void	draw_fractal(t_image *data);
+int		ft_mandelbrot(double x, double y);
+int		ft_julia(double x, double y, t_image *data);
+double	choose_fractal(t_image *data, double x, double y);
+
+void	get_color(t_image *img);
+int		ft_expose_hook(t_image *img);
+int		ft_close_window(int keycode, t_image *list);
+int		ft_key_hook(int keycode, t_image *img);
+int		ft_mouse_hook(int keycode, int x, int y, t_image *img);
+
+int		ft_check_name(char *s, t_image *fractal);
+void	ft_instr_message(int k);
+int		ft_strcmp(char *s1, char *s2);
+void	my_mlx_pixel_put(t_image *img, int x, int y, int color);
 
 #endif

@@ -11,7 +11,7 @@ CFLAGS			= -Wall -Wextra -Werror
 LDFLAGS			= -L$(PRINTFT_DIR) -L$(LIBMLX_DIR) -lmlx -framework OpenGL -framework Appkit -fsanitize=address
 RM				=	rm -f
 
-SRCS_FILES	= main.c
+SRCS_FILES	= main.c utils.c hooks.c fractal.c
 SRCS		= $(addprefix $(SRCS_DIR), $(SRCS_FILES))
 OBJS		= $(addprefix $(OBJS_DIR), $(notdir $(SRCS:.c=.o)))
 LIBMLX		= $(addprefix $(LIBMLX_DIR), libmlx.a)
