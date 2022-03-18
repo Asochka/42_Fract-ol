@@ -7,7 +7,7 @@
 
 # define ERR_FRACTAL_NAME	"ERROR: No such fractal\nCorrect names:\nJulia\nMandelbrot\n"
 
-# define ERR_THREADS		"ERROR: There is a problem with threads"
+# define ERR_WITH_MALLOC	"ERROR: There is a problem with memory"
 # define ERR_NUM_ARGV		"ERROR: Wrong number of arguments"
 
 # define NUM_PAD_MINUS		78

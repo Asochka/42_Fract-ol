@@ -29,7 +29,7 @@ void	ft_instr_message(int k)
 	if (k == 4)
 		ft_printf(ERR_FRACTAL_NAME);
 	if (k == 5)
-		ft_printf(ERR_THREADS);
+		ft_printf(ERR_WITH_MALLOC);
 	exit (0);
 }
 

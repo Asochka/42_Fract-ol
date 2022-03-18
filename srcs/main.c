@@ -1,10 +1,5 @@
 #include "../includes/fractol.h"
 
-// int	create_trgb(int r, int g, int b)
-// {
-// 	return (r << 16 | g << 8 | b);
-// }
-
 void	ft_empty_fractal(t_image *fractal)
 {
 	// fractal->image = 0;
@@ -49,7 +44,7 @@ void	ft_create_fractal(t_image *fractal, char *name)
 	ft_empty_fractal(fractal);
 	fractal->mlx_ptr = mlx_init();
 	if (!(fractal->mlx_ptr))
-		ft_instr_message(2);
+		ft_instr_message(1);
 	fractal->mlx_win = mlx_new_window(fractal->mlx_ptr, WIDTH, HEIGHT, name);
 	if (!(fractal->mlx_win))
 		ft_instr_message(2);
@@ -63,7 +58,7 @@ int	main(int argc, char **argv)
 
 	fractal = (t_image *)malloc(sizeof(t_image));
 	if (!fractal)
-		exit (0);
+		ft_instr_message(5);
 	if (argc != 2)
 		ft_instr_message(0);
 	else if (ft_check_name(argv[1], fractal) == -1)
