@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: smana <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/21 13:31:22 by smana             #+#    #+#             */
+/*   Updated: 2022/03/21 13:31:24 by smana            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/fractol.h"
 
 int	ft_check_name(char *s, t_image *fractal)
@@ -5,15 +17,15 @@ int	ft_check_name(char *s, t_image *fractal)
 	if (ft_strcmp(s, "Julia") == 0)
 	{
 		fractal->fract = 0;
-		return 0;
+		return (0);
 	}
 	else if (ft_strcmp(s, "Mandelbrot") == 0)
 	{
 		fractal->fract = 1;
-		return 1;
+		return (1);
 	}
 	else
-		return -1;
+		return (-1);
 }
 
 void	ft_instr_message(int k)
@@ -48,5 +60,5 @@ void	my_mlx_pixel_put(t_image *img, int x, int y, int color)
 	char	*dst;
 
 	dst = img->data_addr + (y * img->size_line + x * (img->bits_per_pixel / 8));
-	*(unsigned int*)dst = color;
+	*(unsigned int *)dst = color;
 }

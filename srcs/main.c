@@ -1,20 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: smana <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/21 13:31:07 by smana             #+#    #+#             */
+/*   Updated: 2022/03/21 13:31:10 by smana            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/fractol.h"
 
 void	ft_empty_fractal(t_image *fractal)
 {
-	// fractal->image = 0;
-	// fractal->data_addr = 0;
-	// fractal->bits_per_pixel = 0;
-	// fractal->size_line = 0;
-	// fractal->endian = 0;
-	fractal->scale = 250.0;//or 200
-	fractal->n = 0;//number of iterations
+	fractal->scale = 250.0;
+	fractal->n = 0;
 	fractal->color.channel[0] = 2;
 	fractal->color.channel[1] = 5;
 	fractal->color.channel[2] = 6;
 	fractal->c.re = 0;
 	fractal->c.im = 0;
-
 	fractal->x0 = -500;
 	fractal->y0 = 500;
 }
@@ -24,7 +30,8 @@ void	ft_init_image(t_image *fractal)
 	fractal->image = mlx_new_image(fractal->mlx_ptr, WIDTH, HEIGHT);
 	if (!fractal->image)
 		ft_instr_message(3);
-	fractal->data_addr = mlx_get_data_addr(fractal->image, &fractal->bits_per_pixel,
+	fractal->data_addr = mlx_get_data_addr(fractal->image, \
+	&fractal->bits_per_pixel,
 			&fractal->size_line, &fractal->endian);
 	if (!fractal->data_addr)
 		ft_instr_message(3);
@@ -67,4 +74,3 @@ int	main(int argc, char **argv)
 		ft_create_fractal(fractal, argv[1]);
 	return (0);
 }
-

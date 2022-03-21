@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fractal.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: smana <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/21 13:31:00 by smana             #+#    #+#             */
+/*   Updated: 2022/03/21 13:31:03 by smana            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/fractol.h"
 
 void	draw_fractal(t_image *data)
@@ -18,7 +30,8 @@ void	draw_fractal(t_image *data)
 			y = (data->y0 - j) / (double) data->scale;
 			iter = choose_fractal(data, x, y);
 			data->color_final = ((255 - iter * data->color.channel[0]) << 16)
-				+ ((255 - iter * data->color.channel[1]) << 8) + (255 - iter * data->color.channel[2]);
+				+ ((255 - iter * data->color.channel[1]) << 8) + \
+				(255 - iter * data->color.channel[2]);
 			my_mlx_pixel_put(data, i, j, data->color_final);
 		}
 	}

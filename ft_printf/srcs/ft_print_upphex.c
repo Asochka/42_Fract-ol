@@ -12,7 +12,7 @@
 
 #include "../includes/ft_printf.h"
 
-int	ft_len_in_hex_upp(unsigned int	a)
+int	ft_len_in_hex_upp(unsigned int a)
 {
 	int	k;
 
@@ -25,7 +25,7 @@ int	ft_len_in_hex_upp(unsigned int	a)
 	return (k);
 }
 
-int	ft_to_hexupp(unsigned int	a)
+int	ft_to_hexupp(unsigned int a)
 {
 	char	*k;
 	int		i;

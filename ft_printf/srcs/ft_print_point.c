@@ -12,7 +12,7 @@
 
 #include "../includes/ft_printf.h"
 
-int	ft_len_in_hex(unsigned long	a)
+int	ft_len_in_hex(unsigned long a)
 {
 	int	k;
 
@@ -25,7 +25,7 @@ int	ft_len_in_hex(unsigned long	a)
 	return (k);
 }
 
-int	ft_to_hex(unsigned long	a)
+int	ft_to_hex(unsigned long a)
 {
 	char	*k;
 	int		i;

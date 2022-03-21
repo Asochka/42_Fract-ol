@@ -1,11 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   hooks.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: smana <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/21 13:31:14 by smana             #+#    #+#             */
+/*   Updated: 2022/03/21 13:31:17 by smana            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/fractol.h"
 
 void	get_color(t_image *img)
 {
-	// img->n = (img->n)%10 * create_trgb((int)(sqrt(img->z.re * img->z.re + img->z.im * img->z.im) * 133) % 255,
-	// 		(int)(sqrt(img->z.re * img->z.re + img->z.im * img->z.im) * 1000) % 255,
-	// 		(int)(sqrt(img->z.re * img->z.re + img->z.im * img->z.im) * 2912) % 255);
-
 	if (img->n == 0)
 	{
 		img->n = 1;
@@ -34,6 +42,7 @@ int	ft_expose_hook(t_image *img)
 	draw_fractal(img);
 	return (0);
 }
+
 int	ft_close_window(int keycode, t_image *list)
 {
 	exit(0);
