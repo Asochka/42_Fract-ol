@@ -13,13 +13,13 @@
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# define ERR_FRACTOL_INIT	"ERROR: Can\'t initialize fractol"
-# define ERR_WINDOW_INIT	"ERROR: Can\'t initialize window"
-# define ERR_IMAGE_INIT		"ERROR: Can\'t initialize image"
-# define ERR_FRACTAL_NAME	"ERROR: No such fractal\n \
+# define ERR_FRACTOL_INIT	"ERROR: Can\'t initialize fractol\n"
+# define ERR_WINDOW_INIT	"ERROR: Can\'t initialize window\n"
+# define ERR_IMAGE_INIT		"ERROR: Can\'t initialize image\n"
+# define ERR_FRACTAL_NAME	"ERROR: No such fractal\n\
 Correct names:\nJulia\nMandelbrot\n"
-# define ERR_WITH_MALLOC	"ERROR: There is a problem with memory"
-# define ERR_NUM_ARGV		"ERROR: Wrong number of arguments"
+# define ERR_WITH_MALLOC	"ERROR: There is a problem with memory\n"
+# define ERR_NUM_ARGV		"ERROR: Wrong number of arguments\n"
 
 # define NUM_PAD_MINUS		78
 # define NUM_PAD_PLUS		69
@@ -98,16 +98,17 @@ typedef struct s_image
 	double			y0;
 }	t_image;
 
-void	ft_empty_fractal(t_image *fractal);
+void	ft_empty_fractal(t_image *fractal,  int x);
 void	ft_init_image(t_image *fractal);
 void	ft_make_hooks(t_image *fractal);
-void	ft_create_fractal(t_image *fractal, char *name);
+void	ft_create_fractal(t_image *fractal, char *name, int x);
 int		main(int argc, char **argv);
 
 void	draw_fractal(t_image *data);
 int		ft_mandelbrot(double x, double y);
 int		ft_julia(double x, double y, t_image *data);
 double	choose_fractal(t_image *data, double x, double y);
+void	ft_init_c(t_image *fractal, char *ar1, char *ar2);
 
 void	get_color(t_image *img);
 int		ft_expose_hook(t_image *img);
@@ -119,6 +120,7 @@ int		ft_check_name(char *s, t_image *fractal);
 void	ft_instr_message(int k);
 int		ft_strcmp(char *s1, char *s2);
 void	my_mlx_pixel_put(t_image *img, int x, int y, int color);
+double	ft_atoi(const char *str);
 
 #endif
 /*

@@ -68,8 +68,11 @@ int	ft_julia(double x, double y, t_image *data)
 	double	tmp_im;
 	int		i;
 
-	data->c.re = 0.36;
-	data->c.im = 0.36;
+	if (data->c.re == 0 && data->c.im == 0)
+	{
+		data->c.re = 0.367811;
+		data->c.im = 0.367811;
+	}
 	i = 0;
 	while (i < 100 && (x * x + y * y < 4))
 	{
@@ -90,4 +93,10 @@ double	choose_fractal(t_image *data, double x, double y)
 		return (ft_mandelbrot(x, y));
 	else
 		return (0.0);
+}
+
+void	ft_init_c(t_image *fractal, char *ar1, char *ar2)
+{
+	fractal->c.re = ft_atoi(ar1);
+	fractal->c.im = ft_atoi(ar2);
 }

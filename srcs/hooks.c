@@ -17,23 +17,23 @@ void	get_color(t_image *img)
 	if (img->n == 0)
 	{
 		img->n = 1;
-		img->color.channel[0] += 3;
-		img->color.channel[1] += 0;
-		img->color.channel[2] -= 1;
+		img->color.channel[0] = 5;
+		img->color.channel[1] = 14;
+		img->color.channel[2] = 4;
 	}
 	else if (img->n == 1)
 	{
 		img->n = 2;
 		img->color.channel[0] = 1;
-		img->color.channel[1] = 10;
-		img->color.channel[2] = 0;
+		img->color.channel[1] = 12;
+		img->color.channel[2] = 10;
 	}
 	else if (img->n == 2)
 	{
 		img->n = 0;
-		img->color.channel[0] = 2;
-		img->color.channel[1] = 5;
-		img->color.channel[2] = 6;
+		img->color.channel[0] = 3;
+		img->color.channel[1] = 9;
+		img->color.channel[2] = 7;
 	}
 }
 
