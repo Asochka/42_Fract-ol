@@ -108,7 +108,6 @@ void	draw_fractal(t_image *data);
 int		ft_mandelbrot(double x, double y);
 int		ft_julia(double x, double y, t_image *data);
 double	choose_fractal(t_image *data, double x, double y);
-void	ft_init_c(t_image *fractal, char *ar1, char *ar2);
 
 void	get_color(t_image *img);
 int		ft_expose_hook(t_image *img);
@@ -120,7 +119,10 @@ int		ft_check_name(char *s, t_image *fractal);
 void	ft_instr_message(int k);
 int		ft_strcmp(char *s1, char *s2);
 void	my_mlx_pixel_put(t_image *img, int x, int y, int color);
+
 double	ft_atoi(const char *str);
+double	ft_atoi_2(const char *str);
+void	ft_init_c(t_image *fractal, char *ar1, char *ar2);
 
 #endif
 /*

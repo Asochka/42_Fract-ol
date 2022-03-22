@@ -94,9 +94,3 @@ double	choose_fractal(t_image *data, double x, double y)
 	else
 		return (0.0);
 }
-
-void	ft_init_c(t_image *fractal, char *ar1, char *ar2)
-{
-	fractal->c.re = ft_atoi(ar1);
-	fractal->c.im = ft_atoi(ar2);
-}

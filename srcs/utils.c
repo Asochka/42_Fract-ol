@@ -62,37 +62,3 @@ void	my_mlx_pixel_put(t_image *img, int x, int y, int color)
 	dst = img->data_addr + (y * img->size_line + x * (img->bits_per_pixel / 8));
 	*(unsigned int *)dst = color;
 }
-
-double	ft_atoi(const char *str)
-{
-	double	num1;
-	double	num2;
-	double	res;
-
-	num1 = 0;
-	num2 = 0;
-	res = 1;
-	if (*str == '-')
-	{
-		res = -1;
-		str++;
-	}
-	while ((*str != '.') && (*str))
-	{
-		num1 = num1 * 10 + *str - '0';
-		str++;
-	}
-	if (*str == '.')
-	{
-		while (*str)
-			str++;
-		str--;
-		while (*str != '.')
-		{
-			num2 = num2 + *str - '0';
-			num2 *= 0.1;
-			str--;
-		}
-	}
-	return (res * (num1 + num2));
-}
