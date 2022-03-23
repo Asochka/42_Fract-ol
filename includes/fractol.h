@@ -98,7 +98,7 @@ typedef struct s_image
 	double			y0;
 }	t_image;
 
-void	ft_empty_fractal(t_image *fractal,  int x);
+void	ft_empty_fractal(t_image *fractal, int x);
 void	ft_init_image(t_image *fractal);
 void	ft_make_hooks(t_image *fractal);
 void	ft_create_fractal(t_image *fractal, char *name, int x);
@@ -125,10 +125,3 @@ double	ft_atoi_2(const char *str);
 void	ft_init_c(t_image *fractal, char *ar1, char *ar2);
 
 #endif
-/*
-** image          — image identifier
-** data_addr      — image
-** bits_per_pixel — depth of image
-** size_line      — number of bytes used to store one line of image
-** endian         — little or big endian
-*/
